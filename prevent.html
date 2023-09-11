@@ -1,0 +1,53 @@
+<html>
+
+<head>
+	<title>GEEKSFORGEEKS ARTICLE</title>
+	<style>
+		body,
+		#parent,
+		#parent11,
+		#parent22,
+		#child {
+			border: 2px solid red;
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="parent22">
+		<div id="parent11">
+			<div id="parent">
+				<a id="child" href="http://www.google.com" target="_blank">Google</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var child = document.getElementById("child");
+
+		document.querySelector("#child").addEventListener("click", (e) => {
+			// e.stopPropagation();
+			e.preventDefault();
+			console.log("child clicked!!...")
+		})
+
+		document.querySelector("#parent").addEventListener("click", (e) => {
+			e.stopPropagation()
+			console.log("parent clicked!!...")
+		})
+		document.querySelector("#parent11").addEventListener("click", (e) => {
+			e.stopPropagation()
+			console.log("parent11 clicked!!...")
+		})
+		document.querySelector("#parent22").addEventListener("click", (e) => {
+			// e.stopPropagation()
+			console.log("parent22 clicked!!...")
+		})
+		document.querySelector("body").addEventListener("click", (e) => {
+			console.log("body clicked")
+		})
+	</script>
+</body>
+
+</html>
